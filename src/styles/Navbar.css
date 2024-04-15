@@ -1,0 +1,37 @@
+/* styles/Navbar.css */
+.text-custom-color {
+  color: #0000ff; /* Esta é a cor azul escuro (darkblue) em hexadecimal */
+}
+
+/* Navbar.css */
+.nav-link-custom:hover,
+.nav-link-custom:focus {
+  color: #fff; /* Cor branca para o texto ao passar o mouse */
+  background-color: #198754; /* Cor de fundo ao passar o mouse, ajuste conforme necessário */
+}
+
+.nav-link:hover {
+  transform: scale(1.1);
+  transition: transform 0.3s;
+  text-decoration-line: underline;
+  text-decoration-color: #198754;
+}
+
+/* Ajustes adicionais para garantir que a Navbar não afete o layout */
+.navbar {
+  width: 100%; /* Garante que a Navbar ocupe apenas a largura da tela */
+  box-sizing: border-box; /* Garante que padding e border sejam incluídos na largura total */
+}
+
+/* Se estiver usando padding ou margin nas laterais da Navbar, certifique-se de que eles sejam simétricos */
+.navbar .container {
+  padding-left: 15px;
+  padding-right: 15px;
+}
+
+/* Se a Navbar estiver dentro de um container que tem padding ou margin, ajuste-os também */
+.container {
+  padding-left: 15px;
+  padding-right: 15px;
+  margin: 0 auto; /* Centraliza o container */
+}

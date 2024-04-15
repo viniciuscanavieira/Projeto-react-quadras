@@ -1,0 +1,56 @@
+/* definindo variáveis para cores */
+:root{
+    --primary: #2a7731;
+    --secondary: #2e8791;
+    /* tertiary não é um padrão do Bootstrap, mas pode ser adicionado! */
+    --tertiary: hsl(177, 83%, 70%);
+    --success: #2a7731;
+    --info: #969696;
+    --warning: #2a7731;
+    --danger: #c0c0c0;
+}
+/* sobrescrevendo classes padrão do Bootstrap */
+/* a marcação !important dá um peso maior a regra, sobrescrevendo regras prévias */
+.bg-primary, .btn-primary{
+    background-color: var(--primary) !important;
+}
+.bg-secondary, .btn-secondary{
+    background-color: var(--secondary) !important;
+}
+.bg-tertiary, .btn-tertiary{
+    background-color: var(--tertiary) !important;
+}
+.bg-success, .btn-success{
+    background-color: var(--success) !important;
+}
+.bg-info, .btn-info{
+    background-color: var(--info) !important;
+}
+
+.bg-danger .btn-danger{
+    background-color: var(--danger) !important;
+}
+.nav-link {
+    color: var(--primary) !important ;
+}
+.nav-link:hover{
+    color: var(--warning) !important ;
+}
+
+@import url('https://fonts.googleapis.com/css2?family=Chewy&family=Exo+2:ital,wght@0,100..900;1,100..900&family=Signika+Negative:wght@300..700&family=Tilt+Neon&display=swap');
+.font-chewy {
+    font-family: 'Chewy', cursive;
+  }
+  
+  .font-exo {
+    font-family: 'Exo 2', sans-serif;
+  }
+  
+  .font-signika {
+    font-family: 'Signika Negative', sans-serif;
+  }
+  
+  .font-tilt {
+    font-family: 'Tilt Neon', sans-serif;
+  }
+  
