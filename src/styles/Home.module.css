@@ -1,0 +1,38 @@
+.homeSection {
+  background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.3)), url('../media/gramado.jpg');
+  background-size:cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  width: 100%;
+}
+.textWhite {
+  color: #fff; /* Cor branca para o texto */
+  text-shadow: 0px 0px 8px rgba(0, 0, 0, 0.5); /* Sombra para dar destaque */
+  font-family: "Signika Negative", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: weight;
+  font-style: normal;
+}
+
+/* Home.module.css */
+.logo {
+  width: 100%;
+  max-width: 200px;
+  margin-bottom: 1rem;
+  box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.5); /* Adiciona sombra à logo */
+}
+
+.sideImage {
+  width: 60%;
+  box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.5); /* Adiciona sombra à imagem lateral */
+  margin-left: 40vh; /* Empurra a imagem para mais perto da borda direita */
+}
+/* No seu arquivo CSS */
+.logo {
+  width: 100%;
+  max-width: 169px; /* Defina o tamanho máximo da logo */
+  height: auto; /* A altura será ajustada automaticamente */
+}
+
+/* ...restante do seu CSS... */
+
