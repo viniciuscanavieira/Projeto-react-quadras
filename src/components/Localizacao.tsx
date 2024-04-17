@@ -1,11 +1,10 @@
 import React from 'react';
 import { Container, Row, Col } from 'react-bootstrap';
 import "../styles/custom.css"
-import "../styles/Navbar.css"
 
 const Localizacao: React.FC = () => {
   return (
-    <div className="bg-success py-5" style={{border: '5px solid white', backgroundColor: 'green'}}>
+    <div className="bg-success">
       <Container className="my-2">
         <Row>
           <Col className="text-white text-center">
@@ -15,7 +14,7 @@ const Localizacao: React.FC = () => {
       </Container>
       <Row>
         <Col>
-          <div style={{ height: '300px', border: '2px solid white', borderRadius: '15px', overflow: 'hidden' }}>
+          <div style={{ height: '300px' }}>
             <iframe
               width="100%"
               height="100%"
