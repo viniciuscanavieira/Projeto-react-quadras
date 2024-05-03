@@ -7,7 +7,7 @@ import '../styles/custom.css';
 const Home: React.FC = () => {
   return (
     <div
-    className="bg-image d-flex align-items-center justify-content-center"
+    className="bg-gray d-flex align-items-center justify-content-center shadow-lg" 
     style={{
       backgroundImage: `url(${background})`,
       backgroundSize: 'cover', // Ajuste o tamanho da imagem aqui
@@ -32,7 +32,7 @@ const Home: React.FC = () => {
             >
               Sua jornada para a saúde e diversão começa aqui. Encontre a quadra perfeita para o seu jogo!
             </p>
-            <Button className="bg-success text-white shadow" size="lg">
+            <Button className="bg-success text-white" size="lg">
               Reserve Agora
             </Button>
           </Col>
@@ -41,7 +41,7 @@ const Home: React.FC = () => {
               src={logoImage}
               alt="Quadra Esportiva"
               fluid
-              className="shadow" // Adicione a classe de sombra aqui
+              className="shadown-lg bg-gray" // Adicione a classe de sombra aqui
               style={{ maxWidth: '70%', height: 'auto', borderRadius: '20px' }}
             />
           </Col>

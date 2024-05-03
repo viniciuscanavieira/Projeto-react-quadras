@@ -1,7 +1,7 @@
 /* definindo variáveis para cores */
 :root{
     --primary: #2a7731;
-    --secondary: #2e8791;
+    --secondary: #ff0000;
     /* tertiary não é um padrão do Bootstrap, mas pode ser adicionado! */
     --tertiary: hsl(177, 83%, 70%);
     --success: #2a7731;

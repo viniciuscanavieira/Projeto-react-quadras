@@ -82,7 +82,7 @@ interface Quadra {
     const [quantidadeHoras, setQuantidadeHoras] = useState('');
   
     const handleClose = () => setShow(false);
-    const handleShow = (quadra: Quadra) => {
+    const handleQuadraShow = (quadra: Quadra) => {
       setSelectedQuadra(quadra);
       setShow(true);
     };
@@ -104,11 +104,20 @@ const [selectedModalIndex, setSelectedModalIndex] = useState<number | null>(null
 const handleShowModal = (index: number): void => {
   setSelectedModalIndex(index);
 };
-
 // Função para fechar o modal
 const handleCloseModal = (): void => {
   setSelectedModalIndex(null);
 };
+const handleAluguelShow = (alugueis: Alugueis) => {
+  console.log(alugueis.nome); // use a variável 'aluguel' aqui
+  setShow(true); // adicione esta linha
+};
+type Alugueis = {
+  nome: string;
+  descricao: string;
+  imagem: string;
+};
+
   return (
   
        <Container className="my-5">
@@ -117,36 +126,35 @@ const handleCloseModal = (): void => {
           <h2 className="text-center mb-4">Estrutura</h2>
         </Col>
       </Row>
-      <Row>
-        {quadras.map((quadra, index) => (
-          <Col md={4} key={index} className="mb-5 shadow-lg">
-            <Card>
-              <Card.Img variant="top" src={quadra.imagem} />
-              <Card.Body>
-                <Card.Title>{quadra.nome}</Card.Title>
-                <Card.Text>{quadra.descricao}</Card.Text>
-                <Button variant="success" onClick={() => handleShow(quadra)}>Reservar</Button>
-              </Card.Body>
-            </Card>
-          </Col>
-        ))}
-      </Row>
-      {/* Seção de Serviços */}
-      <Row>
-        <Col>
-          <h2 className="text-center">Serviços</h2>
+      <Row className="d-flex align-items-stretch">
+      {quadras.map((quadra, index) => (
+        <Col md={4} key={index} className="mb-5">
+          <Card className="h-100 d-flex flex-column shadow-lg"> {/* Adicione estas classes */}
+            <Card.Img variant="top" src={quadra.imagem} />
+            <Card.Body className="flex-grow-1"> {/* Adicione esta classe */}
+              <Card.Title>{quadra.nome}</Card.Title>
+              <Card.Text>{quadra.descricao}</Card.Text>
+            </Card.Body>
+            <Card.Footer className="text-center"> {/* Adicione este elemento */}
+            <Button variant="success" onClick={() => handleQuadraShow(quadra)}>Reservar Quadra</Button>
+            </Card.Footer>
+          </Card>
         </Col>
-      </Row>
-      <Row>
+      ))}
+    </Row>
+      {/* Seção de Serviços */}
+      <Row className="d-flex align-items-stretch">
   {servicos.map((servico, index) => (
-    <Col md={4} key={index} className="mb-5 shadow-lg">
-      <Card>
+    <Col md={4} key={index} className="mb-5">
+      <Card className="h-100 d-flex flex-column shadow-lg">
         <Card.Img variant="top" src={servico.imagem}/>
-        <Card.Body>
+        <Card.Body className="flex-grow-1">
           <Card.Title>{servico.nome}</Card.Title>
           <Card.Text>{servico.descricao}</Card.Text>
-          <Button variant="success" onClick={() => handleShowModal(index)}>Saiba Mais</Button>
         </Card.Body>
+        <Card.Footer className="text-center">
+          <Button variant="success" onClick={() => handleShowModal(index)}>Saiba Mais</Button>
+        </Card.Footer>
       </Card>
       <Modal show={selectedModalIndex === index} onHide={handleCloseModal}>
         <Modal.Header closeButton>
@@ -170,26 +178,39 @@ const handleCloseModal = (): void => {
     </Col>
   ))}
 </Row>
-      {/* Seção de Aluguel de Ambiente */}
-      <Row>
-        <Col>
-          <h2 className="text-center">Aluguel de Ambiente</h2>
-        </Col>
-      </Row>
-      <Row>
-        {alugueis.map((aluguel, index) => (
-          <Col md={4} key={index} className="mb-5 shadow-lg">
-            <Card>
-              <Card.Img variant="top" src={aluguel.imagem} />
-              <Card.Body>
-                <Card.Title>{aluguel.nome}</Card.Title>
-                <Card.Text>{aluguel.descricao}</Card.Text>
-                <Button variant="success">Reservar</Button>
-              </Card.Body>
-            </Card>
-          </Col>
-        ))}
-      </Row>
+{/* Seção de Aluguel de Ambiente */}
+<Row className="d-flex align-items-stretch">
+  {alugueis.map((aluguel, index) => (
+    <Col md={4} key={index} className="mb-5">
+      <Card className="h-100 d-flex flex-column shadow-lg">
+        <Card.Img variant="top" src={aluguel.imagem} />
+        <Card.Body className="flex-grow-1">
+          <Card.Title>{aluguel.nome}</Card.Title>
+          <Card.Text>{aluguel.descricao}</Card.Text>
+        </Card.Body>
+        <Card.Footer className="text-center">
+          <Button variant="success" onClick={() => handleAluguelShow(aluguel)}>Reservar Aluguel</Button>
+        </Card.Footer>
+      </Card>
+
+      <Modal show={show} onHide={handleClose}>
+        <Modal.Header closeButton>
+          <Modal.Title>Reservar {aluguel.nome}</Modal.Title>
+        </Modal.Header>
+        
+        <Modal.Footer>
+          <Button variant="secondary" onClick={handleClose}>
+            Cancelar
+          </Button>
+          <Button variant="primary" onClick={handleClose}>
+            Reservar
+          </Button>
+        </Modal.Footer>
+      </Modal>
+    </Col>
+  ))}
+</Row>
+
       <Modal show={show} onHide={handleClose}>
         <Modal.Header closeButton>
           <Modal.Title>Reservar {selectedQuadra?.nome}
@@ -206,6 +227,14 @@ const handleCloseModal = (): void => {
               </Button>
           ))}
       </div>
+      <Form>
+           
+            {/* Adicione este novo campo de descrição do aluguel */}
+            <Form.Group controlId="formDescricaoAluguel">
+              <Form.Label>Descrição do Aluguel</Form.Label>
+              <Form.Control as="textarea" rows={3} placeholder="Detalhe aqui o seu aluguel..." />
+            </Form.Group>
+          </Form>
     </Form.Group>
     <Form.Group controlId="formQuantidadeHoras">
       <Form.Label>Quantidade de Horas</Form.Label>

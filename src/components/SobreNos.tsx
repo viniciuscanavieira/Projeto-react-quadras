@@ -5,23 +5,24 @@ import "../styles/custom.css"
 
 const SobreNos: React.FC = () => {
   return (
-    // Container fluido para ocupar toda a largura da tela
     <Container fluid className="py-5" style={{
-      backgroundImage: `url(${backgroundImage})`, // Define a imagem de fundo
-      backgroundSize: 'cover', // Garante que a imagem cubra todo o espaço disponível
-      backgroundRepeat: 'no-repeat', // Impede que a imagem se repita
-      backgroundPosition: 'center center' // Centraliza a imagem de fundo
+      backgroundImage: `url(${backgroundImage})`,
+      backgroundSize: 'cover',
+      backgroundRepeat: 'no-repeat',
+      backgroundPosition: 'center center'
     }}>
       <Row className="justify-content-center">
         <Col md={8} className="text-center">
           <div className="p-5 bg-white" style={{
-            borderRadius: '15px', // Arredonda os cantos do elemento
-            margin: 'auto', // Centraliza o elemento na página
-            maxWidth: '80%', // Define a largura máxima do elemento
-            opacity: 0.9 // Adiciona transparência ao fundo branco para melhor visualização da imagem
+            borderRadius: '15px',
+            margin: 'auto',
+            maxWidth: '80%',
+            opacity: 0.9
           }}>
-            <h2 className="mb-4 font-weight-bold font-chewy">Sobre Nós</h2>
-            {/* Conteúdo do componente */}
+            <h2 className="mb-4 font-weight-bold">Sobre Nós</h2>
+            <p className="mb-4">
+              A Qball é um centro de quadras esportivas, criado com o objetivo de proporcionar a melhor experiência em esportes e lazer. Acreditamos na importância do esporte e do lazer para a saúde e bem-estar, e é por isso que oferecemos instalações de alta qualidade para nossos clientes. Seja para um jogo casual com amigos, um torneio competitivo ou um evento especial, a Qball está aqui para atender às suas necessidades. Junte-se a nós e descubra como a Qball pode enriquecer seu tempo livre e bem-estar.
+            </p>
             <Button className="bg-success text-white" size="lg">Reserve Agora</Button>
           </div>
         </Col>
